@@ -1,17 +1,17 @@
 try {
-  window
+  window;
 } catch (e) {
-  var sinon = require('sinon');
+  var sinon = require("sinon");
 } finally {
   afterEach(function() {
     expect.restoreSpies();
   });
 
-  describe('printString()', function() {
+  describe("printString()", function() {
     it("prints out all of the characters in a passed-in string", function() {
-      expect.spyOn(console, 'log');
+      expect.spyOn(console, "log");
 
-      printString('pizza');
+      printString("pizza");
 
       expect(console.log).toHaveBeenCalledWith("p");
       expect(console.log).toHaveBeenCalledWith("i");
@@ -21,9 +21,9 @@ try {
     });
 
     it("is not hard-coded", function() {
-      expect.spyOn(console, 'log');
+      expect.spyOn(console, "log");
 
-      printString('chocolate');
+      printString("chocolate");
 
       expect(console.log).toHaveBeenCalledWith("c");
       expect(console.log).toHaveBeenCalledWith("h");
@@ -39,16 +39,16 @@ try {
     it("recurses, calling itself once for each letter in the string", function() {
       var printString = sinon.spy(window, "printString");
 
-      printString("pizza")
+      printString("pizza");
 
-      expect(printString.callCount).toEqual(5)
+      expect(printString.callCount).toEqual(5);
     });
   });
 
-  describe('reverseString()', function() {
+  describe("reverseString()", function() {
     it("reverses all of the letters in a string", function() {
-      expect(reverseString('pizza')).toEqual("azzip");
-      expect(reverseString('chocolate')).toEqual("etalocohc");
+      expect(reverseString("pizza")).toEqual("azzip");
+      expect(reverseString("chocolate")).toEqual("etalocohc");
     });
 
     it("makes the proper recursive calls", function() {
@@ -58,29 +58,29 @@ try {
 
       expect(reverseString.callCount)
         .toBeGreaterThanOrEqualTo(5)
-        .toBeLessThanOrEqualTo(6)
+        .toBeLessThanOrEqualTo(6);
     });
   });
 
-  describe('isPalindrome()', function() {
+  describe("isPalindrome()", function() {
     it("returns 'false' when a string is not a palindrome", function() {
-      expect(isPalindrome('pizza')).toEqual(false);
+      expect(isPalindrome("pizza")).toEqual(false);
     });
 
     it("returns 'true' when a string is a palindrome", function() {
-      expect(isPalindrome("madamimadam")).toEqual(true)
+      expect(isPalindrome("madamimadam")).toEqual(true);
     });
 
     it("makes the proper recursive calls", function() {
       var isPalindrome = sinon.spy(window, "isPalindrome");
 
-      isPalindrome("madamimadam")
+      isPalindrome("madamimadam");
 
-      expect(isPalindrome.callCount).toEqual(6)
+      expect(isPalindrome.callCount).toEqual(6);
     });
   });
 
-  describe('addUpTo()', function() {
+  describe("addUpTo()", function() {
     it("sums all members up to a given index in an array", function() {
       expect(addUpTo([1, 4, 5, 3], 2)).toEqual(10);
       expect(addUpTo([4, 3, 1, 5], 1)).toEqual(7);
@@ -95,7 +95,7 @@ try {
     });
   });
 
-  describe('maxOf()', function() {
+  describe("maxOf()", function() {
     it("finds the largest integer in an array", function() {
       expect(maxOf([1, 4, 5, 3])).toEqual(5);
       expect(maxOf([6, 2, 4, 5])).toEqual(6);
@@ -110,7 +110,7 @@ try {
     });
   });
 
-  describe('includesNumber()', function() {
+  describe("includesNumber()", function() {
     it("returns 'true' if the number is present in the array", function() {
       expect(includesNumber([1, 4, 5, 3], 5)).toEqual(true);
     });
