@@ -41,6 +41,10 @@ function addUpTo(array, index = array.length - 1) {
   }
 }
 
+function addUpTo(array, index) {
+  return index ? array[index] + addUpTo(array, --index) : array[index];
+}
+
 function maxOf(array) {
   if (Array.isArray(array)) {
     let arrayCopy = array;
